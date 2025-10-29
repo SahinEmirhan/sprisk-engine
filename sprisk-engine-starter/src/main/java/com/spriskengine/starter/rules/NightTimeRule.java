@@ -1,7 +1,7 @@
 package com.spriskengine.starter.rules;
 
-import com.spriskengine.model.RiskContext;
-import com.spriskengine.rule.ConfigurableRiskRule;
+import com.spriskengine.core.model.RiskContext;
+import com.spriskengine.core.rule.ConfigurableRiskRule;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -137,3 +137,4 @@ public class NightTimeRule implements ConfigurableRiskRule {
         return null;
     }
 }
+

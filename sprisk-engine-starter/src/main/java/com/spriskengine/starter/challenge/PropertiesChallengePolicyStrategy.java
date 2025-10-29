@@ -1,6 +1,6 @@
 package com.spriskengine.starter.challenge;
 
-import com.spriskengine.model.RiskResult;
+import com.spriskengine.core.model.RiskResult;
 import com.spriskengine.starter.config.ChallengePolicyProperties;
 import com.spriskengine.starter.rules.HardRuleEvaluator;
 
@@ -28,4 +28,5 @@ public class PropertiesChallengePolicyStrategy implements ChallengePolicyStrateg
         );
     }
 }
+
 

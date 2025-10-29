@@ -1,6 +1,6 @@
 package com.spriskengine;
 
-import com.spriskengine.storage.RiskStorage;
+import com.spriskengine.core.storage.RiskStorage;
 import com.spriskengine.starter.storage.RedisRiskStorage;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

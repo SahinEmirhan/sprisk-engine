@@ -1,7 +1,7 @@
 package com.spriskengine.starter.challenge;
 
-import com.spriskengine.model.Decision;
-import com.spriskengine.model.RiskResult;
+import com.spriskengine.core.model.Decision;
+import com.spriskengine.core.model.RiskResult;
 import com.spriskengine.starter.rules.HardRuleEvaluator;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -18,3 +18,4 @@ public record ChallengeContext(
 )
 {
 }
+

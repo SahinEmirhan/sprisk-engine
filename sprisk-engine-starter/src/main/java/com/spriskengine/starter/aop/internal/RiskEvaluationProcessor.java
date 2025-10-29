@@ -1,9 +1,9 @@
 package com.spriskengine.starter.aop.internal;
 
-import com.spriskengine.engine.RuleEngine;
-import com.spriskengine.model.Decision;
-import com.spriskengine.model.DecisionProfile;
-import com.spriskengine.model.RiskResult;
+import com.spriskengine.core.engine.RuleEngine;
+import com.spriskengine.core.model.Decision;
+import com.spriskengine.core.model.DecisionProfile;
+import com.spriskengine.core.model.RiskResult;
 import com.spriskengine.starter.challenge.BlockContext;
 import com.spriskengine.starter.challenge.BlockHandler;
 import com.spriskengine.starter.challenge.ChallengeContext;
@@ -241,6 +241,7 @@ public class RiskEvaluationProcessor {
         );
     }
 }
+
 
 
 

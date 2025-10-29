@@ -1,6 +1,6 @@
 package com.spriskengine.starter.storage;
 
-import com.spriskengine.storage.RiskStorage;
+import com.spriskengine.core.storage.RiskStorage;
 
 import java.time.Instant;
 import java.util.Map;
@@ -76,3 +76,4 @@ public class InMemoryRiskStorage implements RiskStorage {
         if (s != null && s.expireAt > 0) s.expireAt = exp;
     }
 }
+

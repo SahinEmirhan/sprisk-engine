@@ -1,7 +1,7 @@
 package com.spriskengine.starter.rules;
 
-import com.spriskengine.model.Decision;
-import com.spriskengine.model.RiskResult;
+import com.spriskengine.core.model.Decision;
+import com.spriskengine.core.model.RiskResult;
 import com.spriskengine.starter.config.SpriskProperties;
 
 import java.util.Collections;
@@ -126,3 +126,4 @@ public class HardRuleEvaluator {
 
     public record HardRuleHit(String ruleName, Decision decision) {}
 }
+

@@ -1,6 +1,6 @@
 package com.spriskengine.starter.aop.internal;
 
-import com.spriskengine.model.RiskContext;
+import com.spriskengine.core.model.RiskContext;
 import com.spriskengine.starter.resolver.RiskUserIdResolver;
 import com.spriskengine.starter.resolver.UserIdResolverContext;
 import jakarta.servlet.http.HttpServletRequest;
@@ -181,3 +181,4 @@ public class RiskInvocationFactory {
         return headers;
     }
 }
+

@@ -1,9 +1,9 @@
 package com.spriskengine.starter.autoconfig;
 
-import com.spriskengine.engine.RuleEngine;
-import com.spriskengine.model.DecisionProfile;
-import com.spriskengine.rule.RiskRule;
-import com.spriskengine.storage.RiskStorage;
+import com.spriskengine.core.engine.RuleEngine;
+import com.spriskengine.core.model.DecisionProfile;
+import com.spriskengine.core.rule.RiskRule;
+import com.spriskengine.core.storage.RiskStorage;
 import com.spriskengine.starter.aop.RiskAspect;
 import com.spriskengine.starter.aop.internal.RiskConfigurationResolver;
 import com.spriskengine.starter.aop.internal.RiskEvaluationProcessor;
@@ -34,8 +34,8 @@ import com.spriskengine.starter.rules.NightTimeRule;
 import com.spriskengine.starter.rules.UserVelocityRule;
 import com.spriskengine.starter.storage.InMemoryRiskStorage;
 import com.spriskengine.starter.storage.RedisRiskStorage;
-import com.spriskengine.window.WindowManager;
-import com.spriskengine.window.WindowStrategy;
+import com.spriskengine.core.window.WindowManager;
+import com.spriskengine.core.window.WindowStrategy;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
@@ -247,3 +247,4 @@ public class SpriskAutoConfiguration {
         return new RuleEngine(rules);
     }
 }
+

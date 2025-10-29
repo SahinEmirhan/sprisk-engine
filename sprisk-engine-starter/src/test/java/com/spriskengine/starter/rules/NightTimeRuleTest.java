@@ -1,6 +1,6 @@
 package com.spriskengine.starter.rules;
 
-import com.spriskengine.model.RiskContext;
+import com.spriskengine.core.model.RiskContext;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -65,3 +65,4 @@ class NightTimeRuleTest {
         assertEquals(0, rule.evaluate(contextAt(1), overrides));
     }
 }
+

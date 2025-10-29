@@ -1,8 +1,8 @@
 package com.spriskengine.starter.rules;
 
-import com.spriskengine.model.RiskContext;
-import com.spriskengine.rule.ConfigurableRiskRule;
-import com.spriskengine.window.WindowManager;
+import com.spriskengine.core.model.RiskContext;
+import com.spriskengine.core.rule.ConfigurableRiskRule;
+import com.spriskengine.core.window.WindowManager;
 
 import java.util.Collections;
 import java.util.Map;
@@ -87,5 +87,6 @@ public class IpVelocityRule implements ConfigurableRiskRule {
         return fallback;
     }
 }
+
 
 

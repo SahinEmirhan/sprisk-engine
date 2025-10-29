@@ -1,6 +1,6 @@
 package com.spriskengine.starter.storage;
 
-import com.spriskengine.storage.RiskStorage;
+import com.spriskengine.core.storage.RiskStorage;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.time.Duration;
@@ -46,3 +46,4 @@ public class RedisRiskStorage implements RiskStorage {
         }
     }
 }
+

@@ -1,7 +1,7 @@
 package com.spriskengine.starter.config;
 
-import com.spriskengine.model.Decision;
-import com.spriskengine.window.WindowStrategy;
+import com.spriskengine.core.model.Decision;
+import com.spriskengine.core.window.WindowStrategy;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.LinkedHashMap;
@@ -65,3 +65,4 @@ public class SpriskProperties {
         }
     }
 }
+

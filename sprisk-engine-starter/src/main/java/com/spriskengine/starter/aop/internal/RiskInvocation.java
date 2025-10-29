@@ -1,6 +1,6 @@
 package com.spriskengine.starter.aop.internal;
 
-import com.spriskengine.model.RiskContext;
+import com.spriskengine.core.model.RiskContext;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.util.function.Supplier;
@@ -14,3 +14,4 @@ public record RiskInvocation(
         HttpServletRequest request
 ) {
 }
+

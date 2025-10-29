@@ -1,6 +1,6 @@
 package com.spriskengine.starter.challenge;
 
-import com.spriskengine.model.RiskResult;
+import com.spriskengine.core.model.RiskResult;
 import com.spriskengine.starter.rules.HardRuleEvaluator;
 
 /**
@@ -11,4 +11,5 @@ public interface ChallengePolicyStrategy {
 
     ChallengePolicy resolve(RiskResult result, HardRuleEvaluator.HardRuleHit hardRuleHit);
 }
+
 
