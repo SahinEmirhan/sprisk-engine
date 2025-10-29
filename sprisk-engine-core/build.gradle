@@ -1,0 +1,16 @@
+plugins {
+    id 'java-library'
+}
+
+java {
+    // JUnit 5 için test platformu
+    test {
+        useJUnitPlatform()
+    }
+}
+
+dependencies {
+    // Test Dependencies
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+}

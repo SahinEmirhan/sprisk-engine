@@ -1,0 +1,39 @@
+﻿spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+sprisk:
+  enabled: true
+  challenge-threshold: 50
+  block-threshold: 150
+  policy:
+    challenge-ttl: 2m
+    temporary-block-ttl: 15m
+    permanent-block-ttl: 7d
+    escalation-threshold: 3
+    permanent-block-enabled: true
+  rules:
+    bruteforce:
+      enabled: false
+    credential-stuffing:
+      enabled: false
+    night-time:
+      enabled: true
+      start-hour: 1
+      end-hour: 5
+      risk-score: 20
+  # Varsayılan olarak starter tarafından zaten etkinleştirilen hard rule.
+  # Burada gösterilmesinin sebebi davranışı özelleştirmek veya gerekirse devre dışı bırakmak.
+  hard-rules:
+    distributed-user-attack:
+      match:
+        ip-velocity: false
+        user-velocity: true
+      action: BLOCK
+
+
+server:
+  port: 8080
+

@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+    group = 'com.spriskengine'
+    version = '0.0.1-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/release" }
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+
+
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+}
