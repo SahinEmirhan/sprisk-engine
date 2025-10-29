@@ -1,0 +1,18 @@
+-classpath 'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\build\\classes\\java\\main;C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\build\\resources\\main'
+-d 'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\build\\docs\\javadoc'
+-doctitle 'sprisk-engine-core v0.1.1 API'
+-notimestamp 
+-quiet 
+-windowtitle 'sprisk-engine-core v0.1.1 API'
+'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\constants\\KeyNames.java'
+'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\engine\\RuleEngine.java'
+'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\model\\Decision.java'
+'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\model\\DecisionProfile.java'
+'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\model\\RiskContext.java'
+'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\model\\RiskResult.java'
+'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\rule\\ConfigurableRiskRule.java'
+'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\rule\\RiskRule.java'
+'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\rule\\ToggleableRiskRule.java'
+'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\storage\\RiskStorage.java'
+'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\window\\WindowManager.java'
+'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\window\\WindowStrategy.java'

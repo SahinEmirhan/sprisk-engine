@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.github.sahinemirhan.core.constants"},{"l":"io.github.sahinemirhan.core.engine"},{"l":"io.github.sahinemirhan.core.model"},{"l":"io.github.sahinemirhan.core.rule"},{"l":"io.github.sahinemirhan.core.storage"},{"l":"io.github.sahinemirhan.core.window"}];updateSearchResults();

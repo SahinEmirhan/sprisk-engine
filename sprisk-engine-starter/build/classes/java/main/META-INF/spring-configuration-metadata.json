@@ -1,0 +1,241 @@
+{
+  "groups": [
+    {
+      "name": "sprisk",
+      "type": "io.github.sahinemirhan.starter.config.SpriskProperties",
+      "sourceType": "io.github.sahinemirhan.starter.config.SpriskProperties"
+    },
+    {
+      "name": "sprisk.policy",
+      "type": "io.github.sahinemirhan.starter.config.ChallengePolicyProperties",
+      "sourceType": "io.github.sahinemirhan.starter.config.ChallengePolicyProperties"
+    },
+    {
+      "name": "sprisk.rules.bruteforce",
+      "type": "io.github.sahinemirhan.starter.config.rule.BruteForceRuleProperties",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.BruteForceRuleProperties"
+    },
+    {
+      "name": "sprisk.rules.credential-stuffing",
+      "type": "io.github.sahinemirhan.starter.config.rule.CredentialStuffingRuleProperties",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.CredentialStuffingRuleProperties"
+    },
+    {
+      "name": "sprisk.rules.ip-velocity",
+      "type": "io.github.sahinemirhan.starter.config.rule.IpVelocityRuleProperties",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.IpVelocityRuleProperties"
+    },
+    {
+      "name": "sprisk.rules.night-time",
+      "type": "io.github.sahinemirhan.starter.config.rule.NightTimeRuleProperties",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.NightTimeRuleProperties"
+    },
+    {
+      "name": "sprisk.rules.user-velocity",
+      "type": "io.github.sahinemirhan.starter.config.rule.UserVelocityRuleProperties",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.UserVelocityRuleProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "sprisk.block-threshold",
+      "type": "java.lang.Integer",
+      "sourceType": "io.github.sahinemirhan.starter.config.SpriskProperties",
+      "defaultValue": 80
+    },
+    {
+      "name": "sprisk.challenge-threshold",
+      "type": "java.lang.Integer",
+      "sourceType": "io.github.sahinemirhan.starter.config.SpriskProperties",
+      "defaultValue": 50
+    },
+    {
+      "name": "sprisk.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.github.sahinemirhan.starter.config.SpriskProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sprisk.fail-closed",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.github.sahinemirhan.starter.config.SpriskProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "sprisk.hard-rules",
+      "type": "java.util.Map<java.lang.String,io.github.sahinemirhan.starter.config.SpriskProperties$HardRuleConfig>",
+      "sourceType": "io.github.sahinemirhan.starter.config.SpriskProperties"
+    },
+    {
+      "name": "sprisk.policy.challenge-ttl",
+      "type": "java.time.Duration",
+      "sourceType": "io.github.sahinemirhan.starter.config.ChallengePolicyProperties",
+      "defaultValue": "5m"
+    },
+    {
+      "name": "sprisk.policy.escalation-threshold",
+      "type": "java.lang.Integer",
+      "sourceType": "io.github.sahinemirhan.starter.config.ChallengePolicyProperties",
+      "defaultValue": 3
+    },
+    {
+      "name": "sprisk.policy.permanent-block-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.github.sahinemirhan.starter.config.ChallengePolicyProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sprisk.policy.permanent-block-ttl",
+      "type": "java.time.Duration",
+      "sourceType": "io.github.sahinemirhan.starter.config.ChallengePolicyProperties",
+      "defaultValue": "365d"
+    },
+    {
+      "name": "sprisk.policy.temporary-block-ttl",
+      "type": "java.time.Duration",
+      "sourceType": "io.github.sahinemirhan.starter.config.ChallengePolicyProperties",
+      "defaultValue": "15m"
+    },
+    {
+      "name": "sprisk.rules.bruteforce.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.BruteForceRuleProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sprisk.rules.bruteforce.max-fail",
+      "type": "java.lang.Long",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.BruteForceRuleProperties",
+      "defaultValue": 8
+    },
+    {
+      "name": "sprisk.rules.bruteforce.risk-score",
+      "type": "java.lang.Integer",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.BruteForceRuleProperties",
+      "defaultValue": 50
+    },
+    {
+      "name": "sprisk.rules.bruteforce.window-seconds",
+      "type": "java.lang.Long",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.BruteForceRuleProperties",
+      "defaultValue": 300
+    },
+    {
+      "name": "sprisk.rules.credential-stuffing.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.CredentialStuffingRuleProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sprisk.rules.credential-stuffing.max-distinct-user-count",
+      "type": "java.lang.Long",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.CredentialStuffingRuleProperties",
+      "defaultValue": 5
+    },
+    {
+      "name": "sprisk.rules.credential-stuffing.risk-score",
+      "type": "java.lang.Integer",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.CredentialStuffingRuleProperties",
+      "defaultValue": 70
+    },
+    {
+      "name": "sprisk.rules.credential-stuffing.window-seconds",
+      "type": "java.lang.Long",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.CredentialStuffingRuleProperties",
+      "defaultValue": 300
+    },
+    {
+      "name": "sprisk.rules.ip-velocity.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.IpVelocityRuleProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sprisk.rules.ip-velocity.max-per-window",
+      "type": "java.lang.Long",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.IpVelocityRuleProperties",
+      "defaultValue": 25
+    },
+    {
+      "name": "sprisk.rules.ip-velocity.risk-score",
+      "type": "java.lang.Integer",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.IpVelocityRuleProperties",
+      "defaultValue": 50
+    },
+    {
+      "name": "sprisk.rules.ip-velocity.window-seconds",
+      "type": "java.lang.Long",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.IpVelocityRuleProperties",
+      "defaultValue": 60
+    },
+    {
+      "name": "sprisk.rules.night-time.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.NightTimeRuleProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sprisk.rules.night-time.end-hour",
+      "type": "java.lang.Integer",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.NightTimeRuleProperties",
+      "defaultValue": 6
+    },
+    {
+      "name": "sprisk.rules.night-time.risk-score",
+      "type": "java.lang.Integer",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.NightTimeRuleProperties",
+      "defaultValue": 15
+    },
+    {
+      "name": "sprisk.rules.night-time.start-hour",
+      "type": "java.lang.Integer",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.NightTimeRuleProperties",
+      "defaultValue": 2
+    },
+    {
+      "name": "sprisk.rules.user-velocity.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.UserVelocityRuleProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "sprisk.rules.user-velocity.excluded-actions",
+      "type": "java.util.Set<java.lang.String>",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.UserVelocityRuleProperties"
+    },
+    {
+      "name": "sprisk.rules.user-velocity.max-per-window",
+      "type": "java.lang.Long",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.UserVelocityRuleProperties",
+      "defaultValue": 20
+    },
+    {
+      "name": "sprisk.rules.user-velocity.risk-score",
+      "type": "java.lang.Integer",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.UserVelocityRuleProperties",
+      "defaultValue": 35
+    },
+    {
+      "name": "sprisk.rules.user-velocity.window-seconds",
+      "type": "java.lang.Long",
+      "sourceType": "io.github.sahinemirhan.starter.config.rule.UserVelocityRuleProperties",
+      "defaultValue": 60
+    },
+    {
+      "name": "sprisk.timezone",
+      "type": "java.lang.String",
+      "sourceType": "io.github.sahinemirhan.starter.config.SpriskProperties",
+      "defaultValue": "Europe\/Istanbul"
+    },
+    {
+      "name": "sprisk.window-strategy",
+      "type": "io.github.sahinemirhan.core.window.WindowStrategy",
+      "sourceType": "io.github.sahinemirhan.starter.config.SpriskProperties",
+      "defaultValue": "sliding"
+    }
+  ],
+  "hints": [],
+  "ignored": {
+    "properties": []
+  }
+}

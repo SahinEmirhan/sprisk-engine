@@ -1,0 +1,11 @@
+io.github.sahinemirhan.starter.annotation
+io.github.sahinemirhan.starter.aop
+io.github.sahinemirhan.starter.aop.internal
+io.github.sahinemirhan.starter.autoconfig
+io.github.sahinemirhan.starter.challenge
+io.github.sahinemirhan.starter.config
+io.github.sahinemirhan.starter.config.rule
+io.github.sahinemirhan.starter.exception
+io.github.sahinemirhan.starter.resolver
+io.github.sahinemirhan.starter.rules
+io.github.sahinemirhan.starter.storage

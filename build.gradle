@@ -1,25 +1,88 @@
 plugins {
-    id 'java'
+    id 'java-platform'
 }
 
 allprojects {
-    group = 'com.spriskengine'
-    version = '0.0.1-SNAPSHOT'
+    group = 'io.github.sahinemirhan'
+    version = '0.0.1'
 
     repositories {
         mavenCentral()
         maven { url "https://repo.spring.io/release" }
     }
 
-    java {
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(21)
-        }
-
-
-    }
 }
 
 subprojects {
-    apply plugin: 'java'
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+    apply plugin: 'signing'
+
+    group = rootProject.group
+    version = rootProject.version
+
+    java {
+        withSourcesJar()
+        withJavadocJar()
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+
+                pom {
+                    name.set(project.name)
+                    description.set("Sprisk Engine module: ${project.name}")
+                    url.set("https://github.com/sahinemirhan/sprisk-engine")
+
+                    licenses {
+                        license {
+                            name.set("MIT License")
+                            url.set("https://opensource.org/licenses/MIT")
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id.set("emirhan")
+                            name.set("Emirhan Şahin")
+                            url.set("https://github.com/sahinemirhan")
+                        }
+                    }
+
+                    scm {
+                        connection.set("scm:git:git://github.com/sahinemirhan/sprisk-engine.git")
+                        developerConnection.set("scm:git:ssh://github.com:sahinemirhan/sprisk-engine.git")
+                        url.set("https://github.com/sahinemirhan/sprisk-engine")
+                    }
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                name = "OSSRH"
+                url = version.endsWith("SNAPSHOT")
+                        ? uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+                        : uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+
+                credentials {
+                    username = project.findProperty("ossrhUsername") ?: System.getenv("OSSRH_USERNAME")
+                    password = project.findProperty("ossrhPassword") ?: System.getenv("OSSRH_PASSWORD")
+                }
+            }
+        }
+    }
+
+    signing {
+        sign publishing.publications.mavenJava
+    }
 }
