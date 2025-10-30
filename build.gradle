@@ -1,20 +1,58 @@
+import org.gradle.api.publish.maven.tasks.PublishToMavenRepository
+import org.gradle.plugins.signing.Sign
+
 plugins {
     id 'java-platform'
-    id 'maven-publish'
-    id 'signing'
+}
+
+group = 'io.github.sahinemirhan'
+version = '0.0.3'
+
+ext {
+    publishedProjects = [':sprisk-engine-core', ':sprisk-engine-starter']
+    moduleMetadata = [
+            'sprisk-engine-core'   : [
+                    name       : 'Sprisk Engine Core',
+                    description: 'Core risk evaluation and rule engine components for Sprisk.'
+            ],
+            'sprisk-engine-starter': [
+                    name       : 'Sprisk Engine Starter',
+                    description: 'Spring Boot starter and auto-configuration for Sprisk Engine.'
+            ]
+    ]
+    signingKey = findProperty('signingKey') ?: System.getenv('GPG_PRIVATE_KEY')
+    signingPassword = findProperty('signingPassword') ?: System.getenv('GPG_PASSPHRASE')
+    ossrhUsername = findProperty('ossrhUsername')
+            ?: findProperty('centralUsername')
+            ?: System.getenv('CENTRAL_USERNAME')
+    ossrhPassword = findProperty('ossrhPassword')
+            ?: findProperty('centralPassword')
+            ?: System.getenv('CENTRAL_PASSWORD')
 }
 
 allprojects {
-    group = 'io.github.sahinemirhan'
-    version = '0.0.2'
+    group = rootProject.group
+    version = rootProject.version
 
     repositories {
         mavenCentral()
         maven { url "https://repo.spring.io/release" }
     }
+
+    plugins.withType(JavaBasePlugin) {
+        java {
+            toolchain {
+                languageVersion = JavaLanguageVersion.of(21)
+            }
+        }
+
+        tasks.withType(Test).configureEach {
+            useJUnitPlatform()
+        }
+    }
 }
 
-subprojects {
+configure(rootProject.ext.publishedProjects.collect { project(it) }) {
     apply plugin: 'java-library'
     apply plugin: 'maven-publish'
     apply plugin: 'signing'
@@ -22,9 +60,6 @@ subprojects {
     java {
         withSourcesJar()
         withJavadocJar()
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(21)
-        }
     }
 
     publishing {
@@ -33,8 +68,9 @@ subprojects {
                 from components.java
 
                 pom {
-                    name.set(project.name)
-                    description.set("Sprisk Engine module: ${project.name}")
+                    def meta = rootProject.ext.moduleMetadata[project.name] ?: [:]
+                    name.set(meta.name ?: project.name)
+                    description.set(meta.description ?: "Sprisk Engine module: ${project.name}")
                     url.set("https://github.com/sahinemirhan/sprisk-engine")
 
                     licenses {
@@ -47,14 +83,14 @@ subprojects {
                     developers {
                         developer {
                             id.set("emirhan")
-                            name.set("Emirhan Şahin")
+                            name.set("Emirhan Sahin")
                             url.set("https://github.com/sahinemirhan")
                         }
                     }
 
                     scm {
                         connection.set("scm:git:git://github.com/sahinemirhan/sprisk-engine.git")
-                        developerConnection.set("scm:git:ssh://github.com/sahinemirhan/sprisk-engine.git")
+                        developerConnection.set("scm:git:ssh://github.com:sahinemirhan/sprisk-engine.git")
                         url.set("https://github.com/sahinemirhan/sprisk-engine")
                     }
                 }
@@ -62,21 +98,37 @@ subprojects {
         }
 
         repositories {
-            maven {
-                name = "OSSRH"
-                url = version.endsWith("SNAPSHOT") ?
-                        uri("https://s01.oss.sonatype.org/content/repositories/snapshots/") :
-                        uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            if (rootProject.ext.ossrhUsername && rootProject.ext.ossrhPassword) {
+                maven {
+                    name = "OSSRH"
+                    url = version.endsWith("SNAPSHOT")
+                            ? uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+                            : uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
 
-                credentials {
-                    username = System.getenv("OSSRH_USERNAME")
-                    password = System.getenv("OSSRH_PASSWORD")
+                    credentials {
+                        username = rootProject.ext.ossrhUsername
+                        password = rootProject.ext.ossrhPassword
+                    }
                 }
+            } else {
+                mavenLocal()
             }
         }
     }
 
     signing {
-        sign publishing.publications.mavenJava
+        required { rootProject.ext.signingKey && rootProject.ext.signingPassword }
+        if (rootProject.ext.signingKey && rootProject.ext.signingPassword) {
+            useInMemoryPgpKeys(rootProject.ext.signingKey, rootProject.ext.signingPassword)
+            sign publishing.publications.mavenJava
+        }
+    }
+
+    tasks.withType(Sign).configureEach {
+        onlyIf { rootProject.ext.signingKey && rootProject.ext.signingPassword }
+    }
+
+    tasks.withType(PublishToMavenRepository).configureEach {
+        onlyIf { rootProject.ext.ossrhUsername && rootProject.ext.ossrhPassword }
     }
 }

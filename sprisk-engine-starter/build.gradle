@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    implementation project(':sprisk-engine-core')
+    api project(':sprisk-engine-core')
 
     implementation 'org.springframework.boot:spring-boot-starter:3.5.7'
     implementation 'org.springframework.boot:spring-boot-starter-aop:3.5.7'
@@ -12,14 +12,10 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor:3.5.7'
 
     compileOnly 'org.springframework.boot:spring-boot-starter-web:3.5.7'
-    compileOnly "org.springframework.boot:spring-boot-starter-data-redis:3.5.7"
+    compileOnly 'org.springframework.boot:spring-boot-starter-data-redis:3.5.7'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.3'
     testImplementation 'org.mockito:mockito-core:5.14.1'
     testImplementation 'jakarta.servlet:jakarta.servlet-api:6.1.0'
-}
-
-tasks.named('test') {
-    useJUnitPlatform()
 }

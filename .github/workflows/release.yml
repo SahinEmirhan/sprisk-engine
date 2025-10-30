@@ -1,4 +1,4 @@
-name: Release to Maven Central (Starter only)
+name: Release to Maven Central
 
 on:
   push:
@@ -8,48 +8,24 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    name: Publish sprisk-engine-starter
+    name: Publish libraries to Maven Central
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'temurin'
+          cache: 'gradle'
 
-      - name: Grant Gradle permission
-        run: chmod +x gradlew
-
-      - name: Build and publish starter to local repo
-        run: ./gradlew :sprisk-engine-starter:clean :sprisk-engine-starter:build :sprisk-engine-starter:publishToMavenLocal
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-
-      - name: Prepare upload bundle (starter only)
-        run: |
-          TARGET_DIR=$(find ~/.m2/repository/io/github/sahinemirhan/sprisk-engine-starter -type d -name "0.0.*" | head -n 1)
-          echo "📦 Packaging from $TARGET_DIR"
-          cd "$TARGET_DIR"
-          for f in *.*; do
-            if [[ "$f" != *.md5 && "$f" != *.sha1 && "$f" != *.asc ]]; then
-              md5sum "$f" | awk '{print $1}' > "$f.md5"
-              sha1sum "$f" | awk '{print $1}' > "$f.sha1"
-            fi
-          done
-          zip -j /tmp/sprisk-bundle.zip ./*
-          echo "✅ Bundle ready: /tmp/sprisk-bundle.zip"
-
-      - name: Upload to Central Publisher API
+      - name: Publish modules
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: clean build publish
         env:
           CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
           CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
-        run: |
-          echo "🚀 Uploading to Maven Central..."
-          curl -u "$CENTRAL_USERNAME:$CENTRAL_PASSWORD" \
-               -F "bundle=@/tmp/sprisk-bundle.zip" \
-               -F "publishingType=AUTOMATIC" \
-               https://central.sonatype.com/api/v1/publisher/upload
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}

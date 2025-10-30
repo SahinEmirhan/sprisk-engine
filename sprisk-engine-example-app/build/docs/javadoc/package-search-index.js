@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.github.sahinemirhan"},{"l":"io.github.sahinemirhan.config"},{"l":"io.github.sahinemirhan.context"},{"l":"io.github.sahinemirhan.controller"}];updateSearchResults();

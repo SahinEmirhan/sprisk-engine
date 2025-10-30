@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.github.sahinemirhan.RiskAspectIntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-29T23:57:46" hostname="LENOVO" time="0.247">
+<testsuite name="io.github.sahinemirhan.RiskAspectIntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-30T00:57:46" hostname="LENOVO" time="0.198">
   <properties/>
-  <testcase name="riskAspectIsTriggeredForAnnotatedController()" classname="io.github.sahinemirhan.RiskAspectIntegrationTest" time="0.247"/>
-  <system-out><![CDATA[2025-10-30T02:57:45.102+03:00  INFO 16024 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.sahinemirhan.RiskAspectIntegrationTest]: RiskAspectIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2025-10-30T02:57:45.109+03:00  INFO 16024 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.sahinemirhan.SpriskEngineExampleApplication for test class io.github.sahinemirhan.RiskAspectIntegrationTest
+  <testcase name="riskAspectIsTriggeredForAnnotatedController()" classname="io.github.sahinemirhan.RiskAspectIntegrationTest" time="0.198"/>
+  <system-out><![CDATA[2025-10-30T03:57:44.537+03:00  INFO 36720 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.sahinemirhan.RiskAspectIntegrationTest]: RiskAspectIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-10-30T03:57:44.542+03:00  INFO 36720 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.sahinemirhan.SpriskEngineExampleApplication for test class io.github.sahinemirhan.RiskAspectIntegrationTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,11 +14,11 @@
 
  :: Spring Boot ::                (v3.5.7)
 
-2025-10-30T02:57:45.156+03:00  INFO 16024 --- [    Test worker] i.g.s.RiskAspectIntegrationTest          : Starting RiskAspectIntegrationTest using Java 21.0.5 with PID 16024 (started by cress in C:\Users\cress\Workspace\spring_projects\sprisk-engine\sprisk-engine-example-app)
-2025-10-30T02:57:45.156+03:00  INFO 16024 --- [    Test worker] i.g.s.RiskAspectIntegrationTest          : No active profile set, falling back to 1 default profile: "default"
-2025-10-30T02:57:45.470+03:00  INFO 16024 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2025-10-30T02:57:45.471+03:00  INFO 16024 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-10-30T02:57:45.486+03:00  INFO 16024 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2025-10-30T03:57:44.575+03:00  INFO 36720 --- [    Test worker] i.g.s.RiskAspectIntegrationTest          : Starting RiskAspectIntegrationTest using Java 21.0.5 with PID 36720 (started by cress in C:\Users\cress\Workspace\spring_projects\sprisk-engine\sprisk-engine-example-app)
+2025-10-30T03:57:44.576+03:00  INFO 36720 --- [    Test worker] i.g.s.RiskAspectIntegrationTest          : No active profile set, falling back to 1 default profile: "default"
+2025-10-30T03:57:44.851+03:00  INFO 36720 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-30T03:57:44.851+03:00  INFO 36720 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-10-30T03:57:44.863+03:00  INFO 36720 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
 [Sprisk] RedisStorage activated (Redis connection successful)
 [Sprisk] Window strategy = SLIDING
 [Sprisk] BruteForceRule registered
@@ -30,14 +30,14 @@
 [Sprisk] Rule loaded: CREDENTIAL_STUFFING
 [Sprisk] Total rules loaded = 5
 [Sprisk] RiskAspect initialized
-2025-10-30T02:57:46.872+03:00  INFO 16024 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-10-30T02:57:46.872+03:00  INFO 16024 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-10-30T02:57:46.875+03:00  INFO 16024 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
-2025-10-30T02:57:46.922+03:00  INFO 16024 --- [    Test worker] i.g.s.RiskAspectIntegrationTest          : Started RiskAspectIntegrationTest in 1.807 seconds (process running for 14.19)
+2025-10-30T03:57:46.028+03:00  INFO 36720 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-10-30T03:57:46.028+03:00  INFO 36720 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-30T03:57:46.030+03:00  INFO 36720 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2025-10-30T03:57:46.068+03:00  INFO 36720 --- [    Test worker] i.g.s.RiskAspectIntegrationTest          : Started RiskAspectIntegrationTest in 1.521 seconds (process running for 12.708)
 [DEBUG] USER_VELOCITY.evaluate - action= userId=alice
 [DEBUG] USER_VELOCITY key=sprisk:velocity:user:alice count=1
 Decision score = 20
-2025-10-30T02:57:47.089+03:00  INFO 16024 --- [    Test worker] i.g.s.config.RiskDebugLoggingFilter      : spriskRuleFlagsString={night-time=true, ip-velocity=false, user-velocity=false, brute-force=false, credential-stuffing=false} path=/hello status=200
+2025-10-30T03:57:46.193+03:00  INFO 36720 --- [    Test worker] i.g.s.config.RiskDebugLoggingFilter      : spriskRuleFlagsString={night-time=true, ip-velocity=false, user-velocity=false, brute-force=false, credential-stuffing=false} path=/hello status=200
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
