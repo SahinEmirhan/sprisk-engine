@@ -1,0 +1,100 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "io.github.sahinemirhan",
+    "module": "sprisk-engine-core",
+    "version": "0.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "sprisk-engine-core-0.0.1.jar",
+          "url": "sprisk-engine-core-0.0.1.jar",
+          "size": 13389,
+          "sha512": "0bfd5cf841bc0b2ee145cb7e8f8c574a5a6b8722890c72e646a5d5ad80d2734d56cb2128c63a31714efc3b0c43fe772dca26055f21eebe6f8dbce60fed8fc657",
+          "sha256": "dc2a7a32c54485a04bfe5d4d5de992593f1330466573fd007dfd04322aa1d061",
+          "sha1": "78d2bee4eb076015f2e5387107d7e3ae7e5ef0cb",
+          "md5": "a187f6a55bc021c710fca30dda8331a7"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "sprisk-engine-core-0.0.1.jar",
+          "url": "sprisk-engine-core-0.0.1.jar",
+          "size": 13389,
+          "sha512": "0bfd5cf841bc0b2ee145cb7e8f8c574a5a6b8722890c72e646a5d5ad80d2734d56cb2128c63a31714efc3b0c43fe772dca26055f21eebe6f8dbce60fed8fc657",
+          "sha256": "dc2a7a32c54485a04bfe5d4d5de992593f1330466573fd007dfd04322aa1d061",
+          "sha1": "78d2bee4eb076015f2e5387107d7e3ae7e5ef0cb",
+          "md5": "a187f6a55bc021c710fca30dda8331a7"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "sprisk-engine-core-0.0.1-sources.jar",
+          "url": "sprisk-engine-core-0.0.1-sources.jar",
+          "size": 7981,
+          "sha512": "bf9c1897c9ca879d2fc2794b187f5cc37e4de33ad5c9e1dfc703ff67c61baa40395712cb880e0d45bab2c4e15d5dbb98ef1c3a048674cbd24cadf2f19f566012",
+          "sha256": "92fb592c2fe30243b9c624a01c811a5b680582755588291ecaea3907dcbf9952",
+          "sha1": "3cddf04bdf0046b246448b244ab1a35b921d71f5",
+          "md5": "daa78c4d68dfab2a67ae9c24d3b4815b"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "sprisk-engine-core-0.0.1-javadoc.jar",
+          "url": "sprisk-engine-core-0.0.1-javadoc.jar",
+          "size": 135003,
+          "sha512": "ba37898251672829580f662e900efb76b02db6870a5d90f5576bacd83c99dfc6946fe2a844e07e8aaed3b160e0b7a4c77d2bff23b1f862f7cfd219f8b6faf2dc",
+          "sha256": "f2712b11fea95c42b5a1e3f1fc3faa352aa228ee730879ab866f24647fcf404b",
+          "sha1": "894a2bd6ea2c0891be7ddb4df7645d7fb0372dc2",
+          "md5": "549436950f5b96eda90f13072710f6c4"
+        }
+      ]
+    }
+  ]
+}

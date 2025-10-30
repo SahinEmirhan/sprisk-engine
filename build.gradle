@@ -1,5 +1,4 @@
 import org.gradle.plugins.signing.Sign
-import org.gradle.api.publish.maven.tasks.PublishToMavenRepository
 
 plugins {
     id 'java-platform'
@@ -13,7 +12,6 @@ allprojects {
         mavenCentral()
         maven { url "https://repo.spring.io/release" }
     }
-
 }
 
 subprojects {
@@ -24,21 +22,12 @@ subprojects {
     group = rootProject.group
     version = rootProject.version
 
-    def signingKey = project.findProperty("signingKey") ?: System.getenv("SIGNING_KEY")
-    def signingPassword = project.findProperty("signingPassword") ?: System.getenv("SIGNING_PASSWORD")
-    def ossrhUsername = project.findProperty("ossrhUsername") ?: System.getenv("OSSRH_USERNAME")
-    def ossrhPassword = project.findProperty("ossrhPassword") ?: System.getenv("OSSRH_PASSWORD")
-
     java {
         withSourcesJar()
         withJavadocJar()
         toolchain {
             languageVersion = JavaLanguageVersion.of(21)
         }
-    }
-
-    repositories {
-        mavenCentral()
     }
 
     publishing {
@@ -75,36 +64,21 @@ subprojects {
             }
         }
 
+        // Şimdilik sadece local publish — Central Portal’a manuel yükleme yapılacak
         repositories {
-            if (ossrhUsername && ossrhPassword) {
-                maven {
-                    name = "OSSRH"
-                    url = version.endsWith("SNAPSHOT")
-                            ? uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-                            : uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-
-                    credentials {
-                        username = ossrhUsername
-                        password = ossrhPassword
-                    }
-                }
-            }
+            mavenLocal()
         }
     }
 
     signing {
-        required { signingKey && signingPassword }
-        if (signingKey && signingPassword) {
-            useInMemoryPgpKeys(signingKey, signingPassword)
+        def signingKey = System.getenv("GPG_PRIVATE_KEY")
+        def signingPassphrase = System.getenv("GPG_PASSPHRASE")
+
+        if (signingKey && signingPassphrase) {
+            useInMemoryPgpKeys(signingKey, signingPassphrase)
             sign publishing.publications.mavenJava
+        } else {
+            println("⚠️  GPG signing skipped: Missing environment variables")
         }
-    }
-
-    tasks.withType(Sign).configureEach {
-        onlyIf { signingKey && signingPassword }
-    }
-
-    tasks.withType(PublishToMavenRepository).configureEach {
-        onlyIf { ossrhUsername && ossrhPassword }
     }
 }

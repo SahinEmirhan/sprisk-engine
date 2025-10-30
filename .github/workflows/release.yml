@@ -1,4 +1,4 @@
-name: Release to Maven Central
+name: Release to Maven Central (New API)
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   publish:
-    name: Publish All Modules
+    name: Publish Sprisk Engine
     runs-on: ubuntu-latest
 
     steps:
@@ -19,19 +19,28 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-          server-id: ossrh
-          server-username: OSSRH_USERNAME
-          server-password: OSSRH_PASSWORD
-          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-          gpg-passphrase: GPG_PASSPHRASE
 
-      - name: Grant execute permission for gradlew
+      - name: Grant execute permission for Gradle
         run: chmod +x gradlew
 
-      - name: Build & Publish to Maven Central
-        run: ./gradlew clean build publish
+      - name: Build and publish to local Maven repo
+        run: ./gradlew clean build publishToMavenLocal
         env:
-          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
+      - name: Upload to Central Publisher API
+        env:
+          CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
+          CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
+        run: |
+          echo "🔍 Searching for built artifacts..."
+          ARTIFACT_PATH=$(find ~/.m2/repository/io/github/sahinemirhan/ -name "*.jar" | head -n 1 | xargs dirname)
+          echo "📦 Uploading contents of $ARTIFACT_PATH"
+          zip -r sprisk-artifacts.zip $ARTIFACT_PATH
+
+          echo "🚀 Sending to Central API..."
+          curl -u "$CENTRAL_USERNAME:$CENTRAL_PASSWORD" \
+               -F "bundle=@sprisk-artifacts.zip" \
+               -F "publishingType=AUTOMATIC" \
+               https://central.sonatype.com/api/v1/publisher/upload

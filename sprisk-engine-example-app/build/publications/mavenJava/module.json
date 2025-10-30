@@ -1,0 +1,128 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "io.github.sahinemirhan",
+    "module": "sprisk-engine-example-app",
+    "version": "0.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.10"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "sprisk-engine-example-app-0.0.1-plain.jar",
+          "url": "sprisk-engine-example-app-0.0.1-plain.jar",
+          "size": 20461,
+          "sha512": "6f4ff7f621feb2e73b41967a26200eb1649d17875f536b6726d21f0c6d8456afeb74ed584ceb199686fa7757f5d051cee57b6583fb9d834a1480b4300b4fbc40",
+          "sha256": "f4400342c6febae0aaf00d0285218fb0b6eb83ae00aa333e88b2acf8fe63210e",
+          "sha1": "9ef6330d58fb961c8e34c4eabffff75477469782",
+          "md5": "f49da15823ca89a53fb3ffaad9fe48ed"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "io.github.sahinemirhan",
+          "module": "sprisk-engine-core",
+          "version": {
+            "requires": "0.0.1"
+          }
+        },
+        {
+          "group": "io.github.sahinemirhan",
+          "module": "sprisk-engine-starter",
+          "version": {
+            "requires": "0.0.1"
+          }
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-web"
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-aop"
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-data-redis"
+        }
+      ],
+      "files": [
+        {
+          "name": "sprisk-engine-example-app-0.0.1-plain.jar",
+          "url": "sprisk-engine-example-app-0.0.1-plain.jar",
+          "size": 20461,
+          "sha512": "6f4ff7f621feb2e73b41967a26200eb1649d17875f536b6726d21f0c6d8456afeb74ed584ceb199686fa7757f5d051cee57b6583fb9d834a1480b4300b4fbc40",
+          "sha256": "f4400342c6febae0aaf00d0285218fb0b6eb83ae00aa333e88b2acf8fe63210e",
+          "sha1": "9ef6330d58fb961c8e34c4eabffff75477469782",
+          "md5": "f49da15823ca89a53fb3ffaad9fe48ed"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "sprisk-engine-example-app-0.0.1-sources.jar",
+          "url": "sprisk-engine-example-app-0.0.1-sources.jar",
+          "size": 11591,
+          "sha512": "eb3063a5e8553f8706707f7279d328ba0dd3936f973ca49aaaa45f48ac256a8599f08bbde32555ef3b4f98f1d915888aa9e7943ebbe742787a079a8187d73176",
+          "sha256": "0c1716b8fce8be77c35867be8fc24f22ce4369891963b04cdffca084acf7ac33",
+          "sha1": "61a3efec25009958a582d7ca913ce608616f9f38",
+          "md5": "f3b89427b7c7a90ad7001c5cfc35e313"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "sprisk-engine-example-app-0.0.1-javadoc.jar",
+          "url": "sprisk-engine-example-app-0.0.1-javadoc.jar",
+          "size": 132697,
+          "sha512": "9cd3bf17dcd77e9d4667c6b8d7fcb25861a3b58f5a9a207088f873efe6fa4906ba5fc87ac183381f1ee8371a5a531adfc0d0bfb1ce6fd60d2a0b159d5cdebe72",
+          "sha256": "ce9200c1ebaca2ff8989989acb9183c6fcc12466081e9ce3c5e94b0d3a2f8af2",
+          "sha1": "c51570fa1b7fc580438d511397c289ea1c0b07a3",
+          "md5": "f505818d6be77ee8647ef2a55d58d3aa"
+        }
+      ]
+    }
+  ]
+}
