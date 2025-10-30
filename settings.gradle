@@ -1,6 +1,5 @@
 rootProject.name = 'sprisk-engine'
 include 'sprisk-engine-core'
 include 'sprisk-engine-starter'
-include 'sprisk-engine-storage-redis'
 include 'sprisk-engine-example-app'
 
