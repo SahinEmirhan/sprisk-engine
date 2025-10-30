@@ -49,7 +49,7 @@ This guide explains how the Sprisk Engine modules work together, how to integrat
    // From a path variable
    @GetMapping("/test/{id}")
    @RiskCheck(userId = "#id") or @RiskCheck(userId = "#pathVariables['id']")
-   public String getUser(@PathVariable String name) {
+   public String getUser(@PathVariable String id) {
       return id;
    }
    
