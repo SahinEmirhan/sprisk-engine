@@ -54,3 +54,4 @@ jobs:
                -F "bundle=@/tmp/sprisk-bundle.zip" \
                -F "publishingType=AUTOMATIC" \
                https://central.sonatype.com/api/v1/publisher/upload
+
