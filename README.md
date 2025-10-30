@@ -17,7 +17,7 @@ This guide explains how the Sprisk Engine modules work together, how to integrat
    }
 
    dependencies {
-       implementation("io.github.sahinemirhan:sprisk-engine-starter:VERSION")
+       implementation("io.github.sahinemirhan:sprisk-engine-starter:0.0.1")
    }
    ```
 
