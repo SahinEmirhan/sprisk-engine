@@ -282,6 +282,59 @@ sprisk:
       risk-score: 80
 ```
 
+### Registering Custom Rules
+
+The starter automatically gathers every `RiskRule` bean in the Spring context. To add your own heuristics, implement the interface and either annotate the class with `@Component` or expose it via a `@Bean`. Return a unique `code()` (used by hard rules and logs) and an `evaluate` score greater than zero when the rule should contribute risk.
+
+```java
+@Component
+class SuspiciousIpRule implements RiskRule {
+
+    private final Set<String> blockedIps;
+
+    SuspiciousIpRule(DenyListService denyListService) {
+        this.blockedIps = denyListService.currentEntries();
+    }
+
+    @Override
+    public int evaluate(RiskContext ctx) {
+        return blockedIps.contains(ctx.ip()) ? 80 : 0;
+    }
+
+    @Override
+    public String code() {
+        return "suspicious-ip";
+    }
+}
+```
+
+If you prefer Java configuration, declare the rule inside a configuration class:
+
+```java
+@Configuration
+class CustomRuleConfiguration {
+
+    @Bean
+    RiskRule deviceVelocityRule(WindowManager windowManager) {
+        return new RiskRule() {
+            @Override
+            public int evaluate(RiskContext ctx) {
+                Map<String, Object> attributes = ctx.attributes();
+                Integer recentDeviceCount = (Integer) attributes.getOrDefault("recentDeviceCount", 0);
+                return recentDeviceCount > 3 ? 40 : 0;
+            }
+
+            @Override
+            public String code() {
+                return "device-velocity";
+            }
+        };
+    }
+}
+```
+
+As soon as the bean exists, `RuleEngine` logs it during startup and evaluates it alongside the built-ins. You can reference the returned `code()` in YAML hard rules or overrides exactly as you do with the default rules.
+
 ---
 
 ## 7. Redis Integration
