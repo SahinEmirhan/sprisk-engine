@@ -23,12 +23,62 @@ jobs:
       - name: Grant Gradle wrapper execute permission
         run: chmod +x gradlew
 
-      - name: Publish modules
+      - name: Publish modules to local repository
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: clean build publish
+          arguments: clean build publishToMavenLocal
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
+      - name: Package artifacts for Central Portal
+        env:
+          VERSION_REF: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          VERSION="${VERSION_REF#v}"
+          if [[ -z "${VERSION}" ]]; then
+            echo "Unable to determine version from ref '${VERSION_REF}'" >&2
+            exit 1
+          fi
+
+          GROUP_PATH="io/github/sahinemirhan"
+          MODULES=("sprisk-engine-core" "sprisk-engine-starter")
+          BUNDLE_ROOT="$RUNNER_TEMP/central-bundle"
+          mkdir -p "$BUNDLE_ROOT/$GROUP_PATH"
+
+          for module in "${MODULES[@]}"; do
+            SRC="$HOME/.m2/repository/$GROUP_PATH/$module/$VERSION"
+            if [[ ! -d "$SRC" ]]; then
+              echo "Artifacts for $module $VERSION not found at $SRC" >&2
+              exit 1
+            fi
+            DEST_DIR="$BUNDLE_ROOT/$GROUP_PATH/$module/$VERSION"
+            mkdir -p "$(dirname "$DEST_DIR")"
+            cp -R "$SRC" "$DEST_DIR"
+
+            find "$DEST_DIR" -type f ! -name '*.md5' ! -name '*.sha1' ! -name '*.sha256' ! -name '*.sha512' -print0 | while IFS= read -r -d '' file; do
+              sha1sum "$file" | awk '{print $1}' > "${file}.sha1"
+              sha256sum "$file" | awk '{print $1}' > "${file}.sha256"
+              sha512sum "$file" | awk '{print $1}' > "${file}.sha512"
+            done
+          done
+
+          (cd "$BUNDLE_ROOT" && zip -r "$RUNNER_TEMP/sprisk-engine-${VERSION}.zip" "$GROUP_PATH")
+          echo "bundle_path=$RUNNER_TEMP/sprisk-engine-${VERSION}.zip" >> "$GITHUB_ENV"
+
+      - name: Upload bundle to Central Portal
         env:
           CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
           CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          BUNDLE_PATH: ${{ env.bundle_path }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${BUNDLE_PATH}" || ! -f "${BUNDLE_PATH}" ]]; then
+            echo "Bundle not found at ${BUNDLE_PATH}" >&2
+            exit 1
+          fi
+          curl -u "${CENTRAL_USERNAME}:${CENTRAL_PASSWORD}" \
+               -F "bundle=@${BUNDLE_PATH}" \
+               -F "publishingType=AUTOMATIC" \
+               https://central.sonatype.com/api/v1/publisher/upload
