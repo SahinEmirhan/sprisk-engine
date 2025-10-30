@@ -21,22 +21,47 @@ This guide explains how the Sprisk Engine modules work together, how to integrat
    }
    ```
 
-2. **Provide a user identifier** – Sprisk requires a unique user identifier for every risk evaluation. Reference the identifier with the SpEL expression on `@RiskCheck` either at controller or service level:
+   
+2. **Annotate the endpoint** – decorate the HTTP or service method that should trigger a risk evaluation:
+
+   ```java
+   @GetMapping("/transfer")
+   @RiskCheck(action = "TRANSFER", evaluateOnFailure = true)
+   public ResponseEntity<?> transfer(...) { ... }
+   ```
+
+   The `action` attribute becomes part of the risk profile and helps with reporting and rule configuration.
+
+
+3. **Provide a user identifier** – Sprisk requires a unique user identifier for every risk evaluation. Reference the identifier with the SpEL expression on `@RiskCheck` either at controller or service level:
 
    ```java
    // From a header
    @RiskCheck(userId = "#headers['X-User-Id']")
+   
    // From a request parameter
-   @RiskCheck(userId = "#request.getParameter('userId')")
+   @GetMapping("/test")
+   @RiskCheck(userId = "#id") or @RiskCheck(userId = "#request.getParameter('name')")
+   public String getUser(@RequestParam String id){
+      return id;
+   };
+   
    // From a path variable
-   @RiskCheck(userId = "#pathVariables['id']")
+   @GetMapping("/test/{id}")
+   @RiskCheck(userId = "#id") or @RiskCheck(userId = "#pathVariables['id']")
+   public String getUser(@PathVariable String name) {
+      return id;
+   }
+   
    // From a request attribute set by a filter
    @RiskCheck(userId = "#request.getAttribute('sprisk.userId')")
+   
    // From the Spring Security principal
    @RiskCheck(userId = "#request.userPrincipal?.name")
    ```
 
-   If you want to place the user id on the request yourself, register a simple filter:
+
+If you want to place the user id on the request yourself, register a simple filter:
 
    ```java
    @Component
@@ -54,15 +79,6 @@ This guide explains how the Sprisk Engine modules work together, how to integrat
    }
    ```
 
-3. **Annotate the endpoint** – decorate the HTTP or service method that should trigger a risk evaluation:
-
-   ```java
-   @GetMapping("/transfer")
-   @RiskCheck(action = "TRANSFER", evaluateOnFailure = true)
-   public ResponseEntity<?> transfer(...) { ... }
-   ```
-
-   The `action` attribute becomes part of the risk profile and helps with reporting and rule configuration.
 
 4. **Challenge / block behaviour** – By default the starter throws exceptions when a challenge or block decision is reached. If you want JSON responses or other behaviour, register your own `ChallengeHandler` and/or `BlockHandler`. Whatever type your handler returns through `ChallengeResolution.returning(...)` must match the annotated method signature (for example `ResponseEntity<?>` in the demo app). If you want to return different types per endpoint, tailor the handler accordingly or keep the default exception-throwing strategy.
 
