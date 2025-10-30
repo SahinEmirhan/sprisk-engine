@@ -1,9 +1,9 @@
 -classpath 'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\build\\classes\\java\\main;C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\build\\resources\\main'
 -d 'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\build\\docs\\javadoc'
--doctitle 'sprisk-engine-core 0.0.3 API'
+-doctitle 'sprisk-engine-core 0.0.1 API'
 -notimestamp 
 -quiet 
--windowtitle 'sprisk-engine-core 0.0.3 API'
+-windowtitle 'sprisk-engine-core 0.0.1 API'
 'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\constants\\KeyNames.java'
 'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\engine\\RuleEngine.java'
 'C:\\Users\\cress\\Workspace\\spring_projects\\sprisk-engine\\sprisk-engine-core\\src\\main\\java\\io\\github\\sahinemirhan\\core\\model\\Decision.java'

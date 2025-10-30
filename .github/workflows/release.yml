@@ -1,4 +1,4 @@
-name: Release to Maven Central
+﻿name: Release to Maven Central
 
 on:
   push:
@@ -41,7 +41,10 @@ jobs:
             exit 1
           fi
 
-          VERSION=$(ls "$BASE_REPO/sprisk-engine-core" | sort -V | tail -n 1)
+          VERSION=$(xmllint --xpath "string(//versioning/release)" "$BASE_REPO/sprisk-engine-core/maven-metadata-local.xml" 2>/dev/null || true)
+          if [[ -z "$VERSION" ]]; then
+            VERSION=$(ls "$BASE_REPO/sprisk-engine-core" | sort -V | tail -n 1)
+          fi
           if [[ -z "${VERSION}" ]]; then
             echo "Failed to resolve version from local Maven repository" >&2
             exit 1
