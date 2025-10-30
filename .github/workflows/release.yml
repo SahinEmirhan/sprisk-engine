@@ -72,6 +72,7 @@ jobs:
               sha1sum "$file" | awk '{print $1}' > "${file}.sha1"
               sha256sum "$file" | awk '{print $1}' > "${file}.sha256"
               sha512sum "$file" | awk '{print $1}' > "${file}.sha512"
+              md5sum "$file" | awk '{print $1}' > "${file}.md5"
             done
           done
 

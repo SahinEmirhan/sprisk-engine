@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.693s</div>
+<div class="counter">1.388s</div>
 <p>duration</p>
 </div>
 </td>
@@ -82,7 +82,7 @@
 </thead>
 <tr>
 <td class="success">redisStorageIsUsedWhenConfigured()</td>
-<td class="success">1.693s</td>
+<td class="success">1.388s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -90,11 +90,11 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>04:31:04.893 [Test worker] INFO tc.redis:7.2.5-alpine -- Creating container for image: redis:7.2.5-alpine
-04:31:05.411 [Test worker] INFO tc.redis:7.2.5-alpine -- Container redis:7.2.5-alpine is starting: 0ec95e0fe586d8d470e5bb4206b5834b3cc29982697e3ae48f7d6b2b009c3ba3
-04:31:06.262 [Test worker] INFO tc.redis:7.2.5-alpine -- Container redis:7.2.5-alpine started in PT1.3695206S
-04:31:06.433 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [io.github.sahinemirhan.RedisRiskStorageIntegrationTest]: RedisRiskStorageIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-04:31:06.652 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration io.github.sahinemirhan.SpriskEngineExampleApplication for test class io.github.sahinemirhan.RedisRiskStorageIntegrationTest
+<pre>04:43:06.431 [Test worker] INFO tc.redis:7.2.5-alpine -- Creating container for image: redis:7.2.5-alpine
+04:43:06.591 [Test worker] INFO tc.redis:7.2.5-alpine -- Container redis:7.2.5-alpine is starting: 5581629b6d32702afcbe4e8f9fcf7f5179f6ac10df1918774a176746e3c9b696
+04:43:07.262 [Test worker] INFO tc.redis:7.2.5-alpine -- Container redis:7.2.5-alpine started in PT0.8301928S
+04:43:07.427 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [io.github.sahinemirhan.RedisRiskStorageIntegrationTest]: RedisRiskStorageIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+04:43:07.610 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration io.github.sahinemirhan.SpriskEngineExampleApplication for test class io.github.sahinemirhan.RedisRiskStorageIntegrationTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -105,11 +105,11 @@
 
  :: Spring Boot ::                (v3.5.7)
 
-2025-10-30T04:31:07.735+03:00  INFO 27100 --- [    Test worker] i.g.s.RedisRiskStorageIntegrationTest    : Starting RedisRiskStorageIntegrationTest using Java 21.0.5 with PID 27100 (started by cress in C:\Users\cress\Workspace\spring_projects\sprisk-engine\sprisk-engine-example-app)
-2025-10-30T04:31:07.737+03:00  INFO 27100 --- [    Test worker] i.g.s.RedisRiskStorageIntegrationTest    : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2025-10-30T04:31:08.791+03:00  INFO 27100 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2025-10-30T04:31:08.796+03:00  INFO 27100 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-10-30T04:31:08.864+03:00  INFO 27100 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 0 Redis repository interfaces.
+2025-10-30T04:43:08.319+03:00  INFO 33764 --- [    Test worker] i.g.s.RedisRiskStorageIntegrationTest    : Starting RedisRiskStorageIntegrationTest using Java 21.0.5 with PID 33764 (started by cress in C:\Users\cress\Workspace\spring_projects\sprisk-engine\sprisk-engine-example-app)
+2025-10-30T04:43:08.319+03:00  INFO 33764 --- [    Test worker] i.g.s.RedisRiskStorageIntegrationTest    : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2025-10-30T04:43:09.297+03:00  INFO 33764 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-30T04:43:09.297+03:00  INFO 33764 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-10-30T04:43:09.367+03:00  INFO 33764 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 0 Redis repository interfaces.
 [Sprisk] RedisStorage activated (Redis connection successful)
 [Sprisk] Window strategy = SLIDING
 [Sprisk] BruteForceRule registered
@@ -121,16 +121,16 @@
 [Sprisk] Rule loaded: CREDENTIAL_STUFFING
 [Sprisk] Total rules loaded = 5
 [Sprisk] RiskAspect initialized
-2025-10-30T04:31:12.144+03:00  INFO 27100 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-10-30T04:31:12.144+03:00  INFO 27100 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-10-30T04:31:12.144+03:00  INFO 27100 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2025-10-30T04:31:12.208+03:00  INFO 27100 --- [    Test worker] i.g.s.RedisRiskStorageIntegrationTest    : Started RedisRiskStorageIntegrationTest in 5.266 seconds (process running for 12.243)
+2025-10-30T04:43:12.622+03:00  INFO 33764 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-10-30T04:43:12.622+03:00  INFO 33764 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-30T04:43:12.638+03:00  INFO 33764 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-10-30T04:43:12.701+03:00  INFO 33764 --- [    Test worker] i.g.s.RedisRiskStorageIntegrationTest    : Started RedisRiskStorageIntegrationTest in 4.883 seconds (process running for 10.603)
 [DEBUG] USER_VELOCITY.evaluate - action= userId=redis-user
 [DEBUG] USER_VELOCITY key=sprisk:velocity:user:redis-user count=1
 Decision score = 20
-2025-10-30T04:31:13.896+03:00  INFO 27100 --- [    Test worker] i.g.s.config.RiskDebugLoggingFilter      : spriskRuleFlagsString={night-time=true, ip-velocity=false, user-velocity=false, brute-force=false, credential-stuffing=false} path=/hello status=200
-2025-10-30T04:31:14.001+03:00  INFO 27100 --- [xecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost/127.0.0.1:49936
-2025-10-30T04:31:14.011+03:00  WARN 27100 --- [ioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost/&lt;unresolved&gt;:49936]: Connection closed prematurely
+2025-10-30T04:43:14.082+03:00  INFO 33764 --- [    Test worker] i.g.s.config.RiskDebugLoggingFilter      : spriskRuleFlagsString={night-time=true, ip-velocity=false, user-velocity=false, brute-force=false, credential-stuffing=false} path=/hello status=200
+2025-10-30T04:43:14.272+03:00  INFO 33764 --- [xecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost/127.0.0.1:56519
+2025-10-30T04:43:14.289+03:00  WARN 33764 --- [ioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost/&lt;unresolved&gt;:56519]: Connection closed prematurely
 
 io.lettuce.core.RedisConnectionException: Connection closed prematurely
 	at io.lettuce.core.protocol.RedisHandshakeHandler.channelInactive(RedisHandshakeHandler.java:76) ~[lettuce-core-6.6.0.RELEASE.jar:6.6.0.RELEASE/643bd47]
@@ -178,7 +178,7 @@ WARNING: Dynamic loading of agents will be disallowed by default in a future rel
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.10</a> at 30 Eki 2025 04:31:17</p>
+<a href="http://www.gradle.org">Gradle 8.10</a> at 30 Eki 2025 04:43:17</p>
 </div>
 </div>
 </body>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.github.sahinemirhan.resolver.CompositeUserIdResolverTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-10-30T01:31:27" hostname="LENOVO" time="0.164">
+<testsuite name="io.github.sahinemirhan.resolver.CompositeUserIdResolverTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-10-30T01:43:27" hostname="LENOVO" time="0.178">
   <properties/>
-  <testcase name="returnsNullWhenAllExtractorsFail()" classname="io.github.sahinemirhan.resolver.CompositeUserIdResolverTest" time="0.154"/>
-  <testcase name="resolvesUsingFirstNonEmptyExtractor()" classname="io.github.sahinemirhan.resolver.CompositeUserIdResolverTest" time="0.004"/>
-  <testcase name="builderRequiresAtLeastOneExtractor()" classname="io.github.sahinemirhan.resolver.CompositeUserIdResolverTest" time="0.003"/>
+  <testcase name="returnsNullWhenAllExtractorsFail()" classname="io.github.sahinemirhan.resolver.CompositeUserIdResolverTest" time="0.164"/>
+  <testcase name="resolvesUsingFirstNonEmptyExtractor()" classname="io.github.sahinemirhan.resolver.CompositeUserIdResolverTest" time="0.007"/>
+  <testcase name="builderRequiresAtLeastOneExtractor()" classname="io.github.sahinemirhan.resolver.CompositeUserIdResolverTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
