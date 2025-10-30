@@ -20,6 +20,9 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
+      - name: Grant Gradle wrapper execute permission
+        run: chmod +x gradlew
+
       - name: Publish modules
         uses: gradle/gradle-build-action@v2
         with:
