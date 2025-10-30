@@ -12,7 +12,6 @@
             <option value="$PROJECT_DIR$/sprisk-engine-core" />
             <option value="$PROJECT_DIR$/sprisk-engine-example-app" />
             <option value="$PROJECT_DIR$/sprisk-engine-starter" />
-            <option value="$PROJECT_DIR$/sprisk-engine-storage-redis" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -152,23 +152,6 @@ public class SpriskAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(RiskStorage.class)
-    @ConditionalOnBean(StringRedisTemplate.class)
-    public RiskStorage redisStorage(StringRedisTemplate redisTemplate) {
-        try {
-            redisTemplate.execute((RedisCallback<Void>) connection -> {
-                connection.ping();
-                return null;
-            });
-            System.out.println("[Sprisk] RedisStorage activated (Redis connection successful)");
-            return new RedisRiskStorage(redisTemplate);
-        } catch (Exception ex) {
-            System.out.println("[Sprisk] Redis unavailable, falling back to InMemoryStorage");
-            return new InMemoryRiskStorage();
-        }
-    }
-
-    @Bean
-    @ConditionalOnMissingBean(RiskStorage.class)
     public RiskStorage inMemoryStorage() {
         System.out.println("[Sprisk] InMemoryStorage fallback active");
         return new InMemoryRiskStorage();
@@ -246,6 +229,28 @@ public class SpriskAutoConfiguration {
         rules.forEach(rule -> System.out.println("[Sprisk] Rule loaded: " + rule.code()));
         System.out.println("[Sprisk] Total rules loaded = " + rules.size());
         return new RuleEngine(rules);
+    }
+
+    @Configuration(proxyBeanMethods = false)
+    @ConditionalOnClass(name = "org.springframework.data.redis.core.StringRedisTemplate")
+    static class RedisRiskStorageConfiguration {
+
+        @Bean
+        @ConditionalOnMissingBean(RiskStorage.class)
+        @ConditionalOnBean(type = "org.springframework.data.redis.core.StringRedisTemplate")
+        public RiskStorage redisStorage(StringRedisTemplate redisTemplate) {
+            try {
+                redisTemplate.execute((RedisCallback<Void>) connection -> {
+                    connection.ping();
+                    return null;
+                });
+                System.out.println("[Sprisk] RedisStorage activated (Redis connection successful)");
+                return new RedisRiskStorage(redisTemplate);
+            } catch (Exception ex) {
+                System.out.println("[Sprisk] Redis unavailable, falling back to InMemoryStorage");
+                return new InMemoryRiskStorage();
+            }
+        }
     }
 }
 

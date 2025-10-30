@@ -11,10 +11,14 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="sprisk-engine.main" target="21" />
       <module name="sprisk-engine.sprisk-engine-storage-redis" target="21" />
+      <module name="sprisk-engine.sprisk-engine-storage-redis.main" target="21" />
+      <module name="sprisk-engine.sprisk-engine-storage-redis.test" target="21" />
       <module name="sprisk-engine.sprisk-example-app" target="21" />
       <module name="sprisk-engine.sprisk-example-app.main" target="21" />
       <module name="sprisk-engine.sprisk-example-app.test" target="21" />
+      <module name="sprisk-engine.test" target="21" />
       <module name="sprisk-example-app" target="21" />
     </bytecodeTargetLevel>
   </component>
