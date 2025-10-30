@@ -32,23 +32,31 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
       - name: Package artifacts for Central Portal
-        env:
-          VERSION_REF: ${{ github.ref_name }}
         run: |
           set -euo pipefail
-          VERSION="${VERSION_REF#v}"
+          BASE_REPO="$HOME/.m2/repository/io/github/sahinemirhan"
+
+          if [[ ! -d "$BASE_REPO/sprisk-engine-core" ]]; then
+            echo "Core artifacts not found under $BASE_REPO/sprisk-engine-core" >&2
+            exit 1
+          fi
+
+          VERSION=$(ls "$BASE_REPO/sprisk-engine-core" | sort -V | tail -n 1)
           if [[ -z "${VERSION}" ]]; then
-            echo "Unable to determine version from ref '${VERSION_REF}'" >&2
+            echo "Failed to resolve version from local Maven repository" >&2
             exit 1
           fi
 
           GROUP_PATH="io/github/sahinemirhan"
           MODULES=("sprisk-engine-core" "sprisk-engine-starter")
+          echo "Resolved release version: $VERSION"
+          echo "release_version=$VERSION" >> "$GITHUB_ENV"
+
           BUNDLE_ROOT="$RUNNER_TEMP/central-bundle"
           mkdir -p "$BUNDLE_ROOT/$GROUP_PATH"
 
           for module in "${MODULES[@]}"; do
-            SRC="$HOME/.m2/repository/$GROUP_PATH/$module/$VERSION"
+            SRC="$BASE_REPO/$module/$VERSION"
             if [[ ! -d "$SRC" ]]; then
               echo "Artifacts for $module $VERSION not found at $SRC" >&2
               exit 1

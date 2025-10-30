@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="io.github.sahinemirhan.RedisRiskStorageIntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-30T00:57:43" hostname="LENOVO" time="0.93">
+<testsuite name="io.github.sahinemirhan.RedisRiskStorageIntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-30T01:21:18" hostname="LENOVO" time="1.143">
   <properties/>
-  <testcase name="redisStorageIsUsedWhenConfigured()" classname="io.github.sahinemirhan.RedisRiskStorageIntegrationTest" time="0.93"/>
-  <system-out><![CDATA[03:57:36.542 [Test worker] INFO tc.redis:7.2.5-alpine -- Creating container for image: redis:7.2.5-alpine
-03:57:36.673 [Test worker] INFO tc.redis:7.2.5-alpine -- Container redis:7.2.5-alpine is starting: a60a978f24def01f03c7e501834ee65c2bee08f289b03eef746b3a575421ce10
-03:57:37.397 [Test worker] INFO tc.redis:7.2.5-alpine -- Container redis:7.2.5-alpine started in PT0.8554553S
-03:57:37.597 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [io.github.sahinemirhan.RedisRiskStorageIntegrationTest]: RedisRiskStorageIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-03:57:37.798 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration io.github.sahinemirhan.SpriskEngineExampleApplication for test class io.github.sahinemirhan.RedisRiskStorageIntegrationTest
+  <testcase name="redisStorageIsUsedWhenConfigured()" classname="io.github.sahinemirhan.RedisRiskStorageIntegrationTest" time="1.143"/>
+  <system-out><![CDATA[04:21:12.442 [Test worker] INFO tc.redis:7.2.5-alpine -- Creating container for image: redis:7.2.5-alpine
+04:21:12.595 [Test worker] INFO tc.redis:7.2.5-alpine -- Container redis:7.2.5-alpine is starting: 644eb9dbea8c246c943b48aa597176e05fe0e9a50a2502757eceecc0b1eef59b
+04:21:13.283 [Test worker] INFO tc.redis:7.2.5-alpine -- Container redis:7.2.5-alpine started in PT0.840959S
+04:21:13.401 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [io.github.sahinemirhan.RedisRiskStorageIntegrationTest]: RedisRiskStorageIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+04:21:13.552 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration io.github.sahinemirhan.SpriskEngineExampleApplication for test class io.github.sahinemirhan.RedisRiskStorageIntegrationTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -17,11 +17,11 @@
 
  :: Spring Boot ::                (v3.5.7)
 
-2025-10-30T03:57:38.847+03:00  INFO 36720 --- [    Test worker] i.g.s.RedisRiskStorageIntegrationTest    : Starting RedisRiskStorageIntegrationTest using Java 21.0.5 with PID 36720 (started by cress in C:\Users\cress\Workspace\spring_projects\sprisk-engine\sprisk-engine-example-app)
-2025-10-30T03:57:38.851+03:00  INFO 36720 --- [    Test worker] i.g.s.RedisRiskStorageIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
-2025-10-30T03:57:39.903+03:00  INFO 36720 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2025-10-30T03:57:39.906+03:00  INFO 36720 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2025-10-30T03:57:39.964+03:00  INFO 36720 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 0 Redis repository interfaces.
+2025-10-30T04:21:14.218+03:00  INFO 15480 --- [    Test worker] i.g.s.RedisRiskStorageIntegrationTest    : Starting RedisRiskStorageIntegrationTest using Java 21.0.5 with PID 15480 (started by cress in C:\Users\cress\Workspace\spring_projects\sprisk-engine\sprisk-engine-example-app)
+2025-10-30T04:21:14.221+03:00  INFO 15480 --- [    Test worker] i.g.s.RedisRiskStorageIntegrationTest    : No active profile set, falling back to 1 default profile: "default"
+2025-10-30T04:21:15.235+03:00  INFO 15480 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-30T04:21:15.238+03:00  INFO 15480 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-10-30T04:21:15.295+03:00  INFO 15480 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 0 Redis repository interfaces.
 [Sprisk] RedisStorage activated (Redis connection successful)
 [Sprisk] Window strategy = SLIDING
 [Sprisk] BruteForceRule registered
@@ -33,16 +33,16 @@
 [Sprisk] Rule loaded: CREDENTIAL_STUFFING
 [Sprisk] Total rules loaded = 5
 [Sprisk] RiskAspect initialized
-2025-10-30T03:57:43.079+03:00  INFO 36720 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2025-10-30T03:57:43.079+03:00  INFO 36720 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2025-10-30T03:57:43.082+03:00  INFO 36720 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2025-10-30T03:57:43.134+03:00  INFO 36720 --- [    Test worker] i.g.s.RedisRiskStorageIntegrationTest    : Started RedisRiskStorageIntegrationTest in 5.066 seconds (process running for 9.774)
+2025-10-30T04:21:18.423+03:00  INFO 15480 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-10-30T04:21:18.424+03:00  INFO 15480 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-10-30T04:21:18.426+03:00  INFO 15480 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-10-30T04:21:18.485+03:00  INFO 15480 --- [    Test worker] i.g.s.RedisRiskStorageIntegrationTest    : Started RedisRiskStorageIntegrationTest in 4.727 seconds (process running for 9.754)
 [DEBUG] USER_VELOCITY.evaluate - action= userId=redis-user
 [DEBUG] USER_VELOCITY key=sprisk:velocity:user:redis-user count=1
 Decision score = 20
-2025-10-30T03:57:44.066+03:00  INFO 36720 --- [    Test worker] i.g.s.config.RiskDebugLoggingFilter      : spriskRuleFlagsString={night-time=true, ip-velocity=false, user-velocity=false, brute-force=false, credential-stuffing=false} path=/hello status=200
-2025-10-30T03:57:44.179+03:00  INFO 36720 --- [xecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost/127.0.0.1:56598
-2025-10-30T03:57:44.188+03:00  WARN 36720 --- [ioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost/<unresolved>:56598]: Connection closed prematurely
+2025-10-30T04:21:19.632+03:00  INFO 15480 --- [    Test worker] i.g.s.config.RiskDebugLoggingFilter      : spriskRuleFlagsString={night-time=true, ip-velocity=false, user-velocity=false, brute-force=false, credential-stuffing=false} path=/hello status=200
+2025-10-30T04:21:19.716+03:00  INFO 15480 --- [xecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost/127.0.0.1:58529
+2025-10-30T04:21:19.725+03:00  WARN 15480 --- [ioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost/<unresolved>:58529]: Connection closed prematurely
 
 io.lettuce.core.RedisConnectionException: Connection closed prematurely
 	at io.lettuce.core.protocol.RedisHandshakeHandler.channelInactive(RedisHandshakeHandler.java:76) ~[lettuce-core-6.6.0.RELEASE.jar:6.6.0.RELEASE/643bd47]
