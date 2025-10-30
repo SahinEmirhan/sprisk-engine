@@ -21,7 +21,7 @@ This guide explains how the Sprisk Engine modules work together, how to integrat
    }
    ```
 
-   Replace `VERSION` with the published release tag (for example, `1.0.0`). If you are experimenting locally you can use `./gradlew publishToMavenLocal` and depend on the locally published snapshot instead.
+   Replace `VERSION` with the published release tag (for example, `0.0.1`). If you are experimenting locally you can use `./gradlew publishToMavenLocal` and depend on the locally published snapshot instead.
 
 2. **Provide a user identifier** – Sprisk requires a unique user identifier for every risk evaluation. Reference the identifier with the SpEL expression on `@RiskCheck` either at controller or service level:
 
