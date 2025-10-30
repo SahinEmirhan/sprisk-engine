@@ -7,7 +7,7 @@ on:
 
 jobs:
   publish:
-    name: Publish Sprisk Engine
+    name: Publish Sprisk Engine (Core + Starter)
     runs-on: ubuntu-latest
 
     steps:
@@ -31,18 +31,24 @@ jobs:
 
       - name: Prepare Central Upload Bundle
         run: |
-          TARGET_DIR=$(find ~/.m2/repository/io/github/sahinemirhan/ -type d -name "0.0.*" | head -n 1)
-          echo "Packaging artifacts from $TARGET_DIR"
-          cd "$TARGET_DIR"
-          # MD5 ve SHA1 checksum dosyalarını oluştur
-          for f in *.*; do
-            if [[ "$f" != *.md5 && "$f" != *.sha1 && "$f" != *.asc ]]; then
-              md5sum "$f" | awk '{print $1}' > "$f.md5"
-              sha1sum "$f" | awk '{print $1}' > "$f.sha1"
-            fi
+          echo "📦 Preparing bundle..."
+          ZIP_PATH="/tmp/sprisk-bundle.zip"
+          touch "$ZIP_PATH"
+          
+          # Tüm modülleri (core + starter) sırayla ekle
+          for moduleDir in $(find ~/.m2/repository/io/github/sahinemirhan/ -type d -regex ".*/0\\.0\\..*"); do
+            echo "Adding artifacts from $moduleDir"
+            cd "$moduleDir"
+            for f in *.*; do
+              if [[ "$f" != *.md5 && "$f" != *.sha1 && "$f" != *.asc ]]; then
+                md5sum "$f" | awk '{print $1}' > "$f.md5"
+                sha1sum "$f" | awk '{print $1}' > "$f.sha1"
+              fi
+            done
+            zip -j -u "$ZIP_PATH" ./*
           done
-          zip -r /tmp/sprisk-bundle.zip ./*
-          echo "✅ Bundle ready: /tmp/sprisk-bundle.zip"
+
+          echo "✅ Bundle ready at $ZIP_PATH"
 
       - name: Upload to Central Publisher API
         env:
@@ -54,4 +60,3 @@ jobs:
                -F "bundle=@/tmp/sprisk-bundle.zip" \
                -F "publishingType=AUTOMATIC" \
                https://central.sonatype.com/api/v1/publisher/upload
-

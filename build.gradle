@@ -1,12 +1,12 @@
-import org.gradle.plugins.signing.Sign
-
 plugins {
     id 'java-platform'
+    id 'maven-publish'
+    id 'signing'
 }
 
 allprojects {
     group = 'io.github.sahinemirhan'
-    version = '0.0.1'
+    version = '0.0.2'
 
     repositories {
         mavenCentral()
@@ -18,9 +18,6 @@ subprojects {
     apply plugin: 'java-library'
     apply plugin: 'maven-publish'
     apply plugin: 'signing'
-
-    group = rootProject.group
-    version = rootProject.version
 
     java {
         withSourcesJar()
@@ -57,28 +54,29 @@ subprojects {
 
                     scm {
                         connection.set("scm:git:git://github.com/sahinemirhan/sprisk-engine.git")
-                        developerConnection.set("scm:git:ssh://github.com:sahinemirhan/sprisk-engine.git")
+                        developerConnection.set("scm:git:ssh://github.com/sahinemirhan/sprisk-engine.git")
                         url.set("https://github.com/sahinemirhan/sprisk-engine")
                     }
                 }
             }
         }
 
-        // Şimdilik sadece local publish — Central Portal’a manuel yükleme yapılacak
         repositories {
-            mavenLocal()
+            maven {
+                name = "OSSRH"
+                url = version.endsWith("SNAPSHOT") ?
+                        uri("https://s01.oss.sonatype.org/content/repositories/snapshots/") :
+                        uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+
+                credentials {
+                    username = System.getenv("OSSRH_USERNAME")
+                    password = System.getenv("OSSRH_PASSWORD")
+                }
+            }
         }
     }
 
     signing {
-        def signingKey = System.getenv("GPG_PRIVATE_KEY")
-        def signingPassphrase = System.getenv("GPG_PASSPHRASE")
-
-        if (signingKey && signingPassphrase) {
-            useInMemoryPgpKeys(signingKey, signingPassphrase)
-            sign publishing.publications.mavenJava
-        } else {
-            println("⚠️  GPG signing skipped: Missing environment variables")
-        }
+        sign publishing.publications.mavenJava
     }
 }
