@@ -397,7 +397,7 @@ The published artefact coordinates are `io.github.sahinemirhan:sprisk-engine-sta
 ## 10. Contributing
 
 1. Fork the repository and create feature branches from `main`.
-2. Update documentation (`docs/`) whenever you add features or behaviour flags.
+2. Update documentation (`README.MD`) whenever you add features or behaviour flags.
 3. Add unit or integration tests for changes that affect challenge/block logic or rule outcomes.
 4. Run `./gradlew build` before opening a pull request and attach the relevant output.
 5. Follow the existing code style and avoid introducing unnecessary dependencies.
