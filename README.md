@@ -41,14 +41,14 @@ This guide explains how the Sprisk Engine modules work together, how to integrat
    
    // From a request parameter
    @GetMapping("/test")
-   @RiskCheck(userId = "#id") or @RiskCheck(userId = "#request.getParameter('name')")
+   @RiskCheck(userId = "#id") //or @RiskCheck(userId = "#request.getParameter('name')")
    public String getUser(@RequestParam String id){
       return id;
    };
    
    // From a path variable
    @GetMapping("/test/{id}")
-   @RiskCheck(userId = "#id") or @RiskCheck(userId = "#pathVariables['id']")
+   @RiskCheck(userId = "#id") //or @RiskCheck(userId = "#pathVariables['id']")
    public String getUser(@PathVariable String id) {
       return id;
    }
